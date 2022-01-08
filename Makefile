@@ -1,8 +1,9 @@
 TARGET=Juliet1.3
 
 # Bins
-MAKE=make
-CPP=g++
+MAKE=bear make
+CC=clang-3.8
+CPP=clang++-3.8
 CFLAGS=-g
 LFLAGS=-lpthread
 
