@@ -1,5 +1,5 @@
-CC=/usr/bin/gcc
-CPP=/usr/bin/g++
+CC=clang
+CPP=clang
 DEBUG=-g
 CFLAGS=-c
 LFLAGS=-lpthread -lm
@@ -27,17 +27,17 @@ CPP_OBJECTS=$(CPP_SOURCES:.cpp=.o)
 SIMPLES=$(filter-out $(FILTER_OUT), $(wildcard CWE*0.c*) $(wildcard CWE*1.c*) $(wildcard CWE*2.c*) $(wildcard CWE*3.c*) $(wildcard CWE*4.c*)) \
         $(filter-out $(FILTER_OUT), $(wildcard CWE*5.c*) $(wildcard CWE*6.c*) $(wildcard CWE*7.c*) $(wildcard CWE*8.c*) $(wildcard CWE*9.c*))
 SIMPLES_C=$(filter-out $(CPP_SOURCES), $(SIMPLES))
-SIMPLES_CPP=$(filter-out $(C_SOURCES), $(SIMPLES))
+SIMPLES_CPP=clang
 
 LETTEREDS=$(filter-out $(FILTER_OUT), $(wildcard CWE*a.c*))
 LETTEREDS_C=$(subst a.,.,$(filter-out $(CPP_SOURCES), $(LETTEREDS)))
-LETTEREDS_CPP=$(subst a.,.,$(filter-out $(C_SOURCES), $(LETTEREDS)))
+LETTEREDS_CPP=clang
 
 GOOD1S=$(filter-out $(FILTER_OUT), $(wildcard CWE*_good1.cpp))
 BADS=$(subst _good1.,_bad.,$(GOOD1S))
 
 INDIVIDUALS_C=$(addsuffix .out, $(sort $(subst .c,,$(SIMPLES_C) $(LETTEREDS_C))))
-INDIVIDUALS_CPP=$(addsuffix .out, $(sort $(subst .cpp,,$(SIMPLES_CPP) $(LETTEREDS_CPP) $(BADS) $(GOOD1S))))
+INDIVIDUALS_CPP=clang
 
 OBJECTS=$(MAIN_OBJECT) $(C_OBJECTS) $(CPP_OBJECTS) $(C_SUPPORT_OBJECTS)
 # TARGET is the only line in this file specific to the CWE
