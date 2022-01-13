@@ -1,5 +1,5 @@
 CC=clang
-CPP=clang
+CPP=clang++
 DEBUG=-g
 CFLAGS=-c
 LFLAGS=-lpthread -lm
