@@ -11,7 +11,7 @@ INCLUDES=-I ../../testcasesupport
 MAIN=main_linux.cpp
 MAIN_OBJECT=$(MAIN:.cpp=.o)
 
-C_SUPPORT_PATH=../../../testcasesupport/
+C_SUPPORT_PATH=../../testcasesupport/
 C_SUPPORT_FILES=$(C_SUPPORT_PATH)io.c $(C_SUPPORT_PATH)std_thread.c
 C_SUPPORT_OBJECTS=io.o std_thread.o
 FILTER_OUT=$(wildcard CWE*w32*.c*) $(wildcard CWE*wchar_t*.c*)
